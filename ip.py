@@ -1,6 +1,7 @@
 import json
 import urllib3
 import sys
+from termcolor import colored
 
 http = urllib3.PoolManager()
 r_prod = http.request('GET', ('https://backend.northghost.com/server/list?access_token=supersecret'))
@@ -14,26 +15,26 @@ print("Amount of PROD servers = ",len(k))
 print("Amount of STAGE servers = ",len(n))
 def check_ip(ip_address,k,n):
     my_ip=ip_address
+    
     if len(k) != 0:
         for i in range(len(k)):
 
             if my_ip == str(k[i]["ip"]):
-                print(">>> PROD ENV  >>",k[i])
+                print(colored(">>> PROD ENV  >>",'green'),k[i])
                 res_p = 1
                 break
             res_p = 0
     if len(n) != 0:      
         for i in range(len(n)):
             if my_ip == str(n[i]["ip"]):  
-                print(">>>> STAGE ENV  >>>",n[i])
+                print(colored(">>>> STAGE ENV  >>>",'yellow'),n[i])
                 res_s = 2
+                break
             res_s = 3
-    if res_p == 0:
-        print('XXXXXX NOTHING HAS FOUND IN PRODUCTION ENV for the IP ',ip_address)
-    if res_s == 3 :
-        print('XXXXXX NOTHING HAS FOUND IN STAGE ENV for the IP ',ip_address)     
-
-
+    if res_s == 3 and res_p == 0 :    
+        print(colored("NOTHING HAS FOUND",'red'))
+        
+# ip_address = "149.28.192.74"
 ip_address = sys.argv[1]
 
 check_ip(ip_address,k,n)
