@@ -4,7 +4,7 @@ import urllib3
 import sys
 import csv
 # from termcolor import colored
-
+api_alexa_key = "$API_ALEXA"
 http = urllib3.PoolManager()
 
 def checkIpAddress():
@@ -24,7 +24,7 @@ def alexaUpdateOnline(countryCode):
 
     headers = {'Accept':'application/json',
                 'Content-Type': 'application/json',
-                'x-api-key': "Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM"
+                'x-api-key': api_alexa_key
                 }
     request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=10&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
 
