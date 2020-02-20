@@ -4,7 +4,8 @@ import urllib3
 import sys
 import csv
 # from termcolor import colored
-api_alexa_key = "$API_ALEXA_KEY"
+api_alexa_key = "${{ secrets.API_ALEXA_KEY }}"
+
 http = urllib3.PoolManager()
 
 def checkIpAddress():
