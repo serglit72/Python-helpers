@@ -1,10 +1,12 @@
 import json
 import urllib3
+import certifi
 import sys
 from termcolor import colored
 
-http = urllib3.PoolManager()
-r_prod = http.request('GET', ('https://backend.northghost.com/server/list?access_token=supersecret'))
+http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED',ca_certs=certifi.where())
+
+r_prod = http.request('GET', ('https://api-prod-partner-us-west-2.northghost.com/server/list?access_token=supersecret'))
 r_stage = http.request('GET', ('https://api-stage-partner-us-west-2.northghost.com/server/list?access_token=supersecret'))
 
 f=r_prod.data
