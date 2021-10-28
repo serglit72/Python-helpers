@@ -27,7 +27,7 @@ def alexaUpdateOnline(countryCode):
                 'Content-Type': 'application/json',
                 'x-api-key': api_alexa_key
                 }
-    request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=10&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
+    request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=100&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
 
     resp = request.data.decode('utf-8')
    
@@ -91,9 +91,10 @@ def websiteConnectionCheck(mylist,**argv):
 
 if __name__ == "__main__":
    
-    countryCode = checkIpAddress()
+#     countryCode = checkIpAddress()
+    countryCode = 'US'
     # ***** UNCOMMENT THESE TWO LINES FOR ALEXA TOP100 UPDATE (Will charge some money from serglit72@gmail.com AWS account 100 sites = $0.25)
-    # dictOfList = alexaUpdateOnline(countryCode)
+    dictOfList = alexaUpdateOnline(countryCode)
     # websiteConnectionCheck(dictOfList)
-    websitesList = sys.argv[1]  # to use argument for the app you should use " ", from Terminal ex. $ python alexa100.py "data_file_US_demo10.json"
-    websiteConnectionCheck(websitesList)
+#     websitesList = sys.argv[1]  # to use argument for the app you should use " ", from Terminal ex. $ python alexa100.py "data_file_US_demo10.json"
+#     websiteConnectionCheck(websitesList)
