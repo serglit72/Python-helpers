@@ -28,7 +28,7 @@ jobs:
        
       # Runs a single command using the runners shell
       - name: Create a file
-        run: touch sites_alexa_100.json
+        run: touch global_sites_alexa_100.json
       
       # Runs a set of commands using the runners shell
       
