@@ -31,7 +31,11 @@ jobs:
         run: touch global_sites_alexa_100.json
       
       # Runs a set of commands using the runners shell
-      
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # install the latest python version
+
       - name: Run a multi-line script
         env:
           API_ALEXA_KEY: ${{ secrets.API_ALEXA_KEY }}
