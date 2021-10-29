@@ -23,10 +23,9 @@ def checkIpAddress():
         # ************* SEND THE ALEXA.COM  REQUEST TO GET THE TOP100 websites list for the Country Code  *************
 
 def alexaUpdateOnline(countryCode):
-    
-    API_ALEXA_KEY = "${{ secrets.API_ALEXA_KEY }}"
+   
     API_ALEXA_KEY = os.environ.get("API_ALEXA_KEY")
-#     api_alexa_key = 'Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM'
+
     headers = {'Accept':'application/json',
                'Authorization':'AWS4-HMAC-SHA256',
                 'Content-Type': 'application/json',
@@ -40,19 +39,19 @@ def alexaUpdateOnline(countryCode):
     #### ************* TRANSFORM the list into python JSON formated dictionary
     myList = json.loads(resp)
     dictOfList = {}
-    print(myList)
-#     amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
     
-#     for each in amountOfSites:
-#         k = each["Country"]["Rank"]
-#         v = each['DataUrl']
-#         # for k,v in items.dictOfList:
-#         dictOfList[k] = v
+    amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
+    
+    for each in amountOfSites:
+        k = each["Country"]["Rank"]
+        v = each['DataUrl']
+        # for k,v in items.dictOfList:
+        dictOfList[k] = v
 
-#     ##### *********** CREATING a JSON-file from the dictionary
+    ##### *********** CREATING a JSON-file from the dictionary
     
-#     with open("global_sites_top_100.json", "w") as write_file:
-#         json.dump(dictOfList, write_file)
+    with open("global_sites_top_100.json", "w") as write_file:
+        json.dump(dictOfList, write_file)
     
     return dictOfList
 
