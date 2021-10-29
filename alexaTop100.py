@@ -5,7 +5,7 @@ import sys
 import csv
 # from termcolor import colored
 api_alexa_key = "${{ secrets.API_ALEXA_KEY }}"
-api_alexa_key = "Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM"
+
 http = urllib3.PoolManager()
 
 def checkIpAddress():
@@ -92,9 +92,10 @@ def websiteConnectionCheck(mylist,**argv):
 if __name__ == "__main__":
    
 #     countryCode = checkIpAddress()
-    countryCode = 'US'
+    countryCode = None
     # ***** UNCOMMENT THESE TWO LINES FOR ALEXA TOP100 UPDATE (Will charge some money from serglit72@gmail.com AWS account 100 sites = $0.25)
     dictOfList = alexaUpdateOnline(countryCode)
-    websiteConnectionCheck(dictOfList)
+#     websiteConnectionCheck(dictOfList)
 #     websitesList = sys.argv[1]  # to use argument for the app you should use " ", from Terminal ex. $ python alexa100.py "global_sites_top_100.json"
 #     websiteConnectionCheck(websitesList)
+    print(dictOfList)
