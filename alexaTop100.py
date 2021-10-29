@@ -23,7 +23,7 @@ def checkIpAddress():
 
 def alexaUpdateOnline(countryCode):
     api_alexa_key = "${{ secrets.API_ALEXA_KEY }}"
-    api_alexa_key = 'Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM'
+#     api_alexa_key = 'Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM'
     headers = {'Accept':'application/json',
                'Authorization':'AWS4-HMAC-SHA256',
                 'Content-Type': 'application/json',
