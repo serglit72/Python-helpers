@@ -43,7 +43,7 @@ def alexaUpdateOnline(countryCode):
     amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
     
     for each in amountOfSites:
-        k = each["Country"]["Rank"]
+        k = each['Country']['Rank']
         v = each['DataUrl']
         # for k,v in items.dictOfList:
         dictOfList[k] = v
