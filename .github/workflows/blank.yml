@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with: # Set the secret as an input
+          API_ALEXA_KEY: ${{ secrets.API_ALEXA_KEY }}
 
       # Runs a single command using the runners shell
       - name: Create a file
