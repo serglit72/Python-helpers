@@ -27,8 +27,9 @@ def alexaUpdateOnline(countryCode):
                 'Content-Type': 'application/json',
                 'x-api-key': api_alexa_key
                 }
-    request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=100&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
-
+#     request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=100&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
+    #for GLOBAL list use url below and check the count
+    request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=1&ResponseGroup=Country&Output=json'), headers=headers)
     resp = request.data.decode('utf-8')
    
     #### ************* TRANSFORM the list into python JSON formated dictionary
@@ -92,7 +93,7 @@ def websiteConnectionCheck(mylist,**argv):
 if __name__ == "__main__":
    
 #     countryCode = checkIpAddress()
-    countryCode = None
+    countryCode = ""
     # ***** UNCOMMENT THESE TWO LINES FOR ALEXA TOP100 UPDATE (Will charge some money from serglit72@gmail.com AWS account 100 sites = $0.25)
     dictOfList = alexaUpdateOnline(countryCode)
 #     websiteConnectionCheck(dictOfList)
