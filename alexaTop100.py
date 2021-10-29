@@ -24,6 +24,7 @@ def checkIpAddress():
 def alexaUpdateOnline(countryCode):
 
     headers = {'Accept':'application/json',
+               'Authorization':'AWS4-HMAC-SHA256',
                 'Content-Type': 'application/json',
                 'x-api-key': api_alexa_key
                 }
