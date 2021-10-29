@@ -5,7 +5,7 @@ import sys
 import csv
 # from termcolor import colored
 api_alexa_key = "${{ secrets.API_ALEXA_KEY }}"
-
+api_alexa_key = "Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM"
 http = urllib3.PoolManager()
 
 def checkIpAddress():
