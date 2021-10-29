@@ -22,11 +22,11 @@ def checkIpAddress():
         # ************* SEND THE ALEXA.COM  REQUEST TO GET THE TOP100 websites list for the Country Code  *************
 
 def alexaUpdateOnline(countryCode):
-    
+    api_alexa_key = '${{ secrets.API_ALEXA_KEY }}'
     headers = {'Accept':'application/json',
                'Authorization':'AWS4-HMAC-SHA256',
                 'Content-Type': 'application/json',
-                'x-api-key': '${{ secrets.API_ALEXA_KEY }}'
+                'x-api-key': api_alexa_key
                 }
 #     request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=100&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
     #for GLOBAL list use url below and check the count
