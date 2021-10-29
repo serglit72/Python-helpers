@@ -41,6 +41,8 @@ jobs:
         
       - name: commit files
         run: |
+          git config --local user.email "serglit72@gmail.com"
+          git config --local user.name "serglit72"
           git add -A
           git commit -m "commit files data" -a
           
