@@ -35,20 +35,20 @@ def alexaUpdateOnline(countryCode):
     myList = json.loads(resp)
     dictOfList = {}
     print(myList)
-#     amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
+    amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
     
-#     for each in amountOfSites:
-#         k = each["Country"]["Rank"]
-#         v = each['DataUrl']
-#         # for k,v in items.dictOfList:
-#         dictOfList[k] = v
+    for each in amountOfSites:
+        k = each["Country"]["Rank"]
+        v = each['DataUrl']
+        # for k,v in items.dictOfList:
+        dictOfList[k] = v
 
-#     ##### *********** CREATING a JSON-file from the dictionary
+    ##### *********** CREATING a JSON-file from the dictionary
     
-#     with open("data_file_US_demo10.json", "w") as write_file:
-#         json.dump(dictOfList, write_file)
+    with open("global_sites_top_100.json", "w") as write_file:
+        json.dump(dictOfList, write_file)
     
-#     return dictOfList
+    return dictOfList
 
     ### ************* Top100 websites checkout and writes a report in CSV-file
 
