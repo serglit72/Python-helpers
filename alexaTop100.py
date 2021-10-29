@@ -4,7 +4,7 @@ import urllib3
 import sys
 import csv
 # from termcolor import colored
-api_alexa_key = "${{ secrets.API_ALEXA_KEY }}"
+
 
 http = urllib3.PoolManager()
 
@@ -22,11 +22,11 @@ def checkIpAddress():
         # ************* SEND THE ALEXA.COM  REQUEST TO GET THE TOP100 websites list for the Country Code  *************
 
 def alexaUpdateOnline(countryCode):
-
+    
     headers = {'Accept':'application/json',
                'Authorization':'AWS4-HMAC-SHA256',
                 'Content-Type': 'application/json',
-                'x-api-key': api_alexa_key
+                'x-api-key': '${{ secrets.API_ALEXA_KEY }}'
                 }
 #     request = http.request('GET',('https://ats.api.alexa.com/api?Action=TopSites&Count=100&CountryCode='+countryCode+'&ResponseGroup=Country&Output=json'), headers=headers)
     #for GLOBAL list use url below and check the count
