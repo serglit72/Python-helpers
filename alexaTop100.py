@@ -97,7 +97,7 @@ def websiteConnectionCheck(mylist,**argv):
 if __name__ == "__main__":
    
 #     countryCode = checkIpAddress()
-    countryCode = ""
+    countryCode = "US"
     # ***** UNCOMMENT THESE TWO LINES FOR ALEXA TOP100 UPDATE (Will charge some money from serglit72@gmail.com AWS account 100 sites = $0.25)
     dictOfList = alexaUpdateOnline(countryCode)
 #     websiteConnectionCheck(dictOfList)
