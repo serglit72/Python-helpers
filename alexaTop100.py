@@ -34,7 +34,7 @@ def alexaUpdateOnline(countryCode):
     #### ************* TRANSFORM the list into python JSON formated dictionary
     myList = json.loads(resp)
     dictOfList = {}
-    print(myList)
+    
     amountOfSites = myList["Ats"]["Results"]["Result"]["Alexa"]["TopSites"]["Country"]["Sites"]["Site"]
     
     for each in amountOfSites:
@@ -95,6 +95,6 @@ if __name__ == "__main__":
     countryCode = 'US'
     # ***** UNCOMMENT THESE TWO LINES FOR ALEXA TOP100 UPDATE (Will charge some money from serglit72@gmail.com AWS account 100 sites = $0.25)
     dictOfList = alexaUpdateOnline(countryCode)
-    # websiteConnectionCheck(dictOfList)
-#     websitesList = sys.argv[1]  # to use argument for the app you should use " ", from Terminal ex. $ python alexa100.py "data_file_US_demo10.json"
-#     websiteConnectionCheck(websitesList)
+    websiteConnectionCheck(dictOfList)
+    websitesList = sys.argv[1]  # to use argument for the app you should use " ", from Terminal ex. $ python alexa100.py "global_sites_top_100.json"
+    websiteConnectionCheck(websitesList)
