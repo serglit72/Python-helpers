@@ -3,6 +3,7 @@ import json
 import urllib3
 import sys
 import csv
+import os
 # from termcolor import colored
 
 
@@ -22,7 +23,9 @@ def checkIpAddress():
         # ************* SEND THE ALEXA.COM  REQUEST TO GET THE TOP100 websites list for the Country Code  *************
 
 def alexaUpdateOnline(countryCode):
+    
     API_ALEXA_KEY = "${{ secrets.API_ALEXA_KEY }}"
+    API_ALEXA_KEY = os.environ.get("API_ALEXA_KEY")
 #     api_alexa_key = 'Dytah88Qcr1UvKsrbVuKL4vHgDbaplFl1vbErDyM'
     headers = {'Accept':'application/json',
                'Authorization':'AWS4-HMAC-SHA256',
